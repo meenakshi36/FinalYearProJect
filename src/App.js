@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Chat from "./components/Chat";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 function App() {
+  const [user, setUser] = useState(localStorage.getItem("token"));
+  const [showSignup, setShowSignup] = useState(false);
+
+  const [chat, setChat] = useState({
+    messages: [],
+  });
+
+  if (!user) {
+    return showSignup ? (
+      <Signup
+        onLogin={() => setUser(localStorage.getItem("token"))}
+        onSwitch={() => setShowSignup(false)}
+      />
+    ) : (
+      <Login
+        onLogin={() => setUser(localStorage.getItem("token"))}
+        onSwitch={() => setShowSignup(true)}
+      />
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Chat
+      activeChat={chat}
+      updateChat={(messages) => setChat({ messages })}
+    />
   );
 }
 

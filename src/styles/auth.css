@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  font-family: "Noto Sans Tamil", sans-serif;
+  background: #0f172a;
+  color: white;
+}
+
+.authBox {
+  width: 320px;
+  margin: 120px auto;
+  padding: 30px;
+  background: #1e293b;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.authBox h2 {
+  margin-bottom: 20px;
+}
+
+.authBox input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 6px;
+}
+
+.authBox button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #22c55e;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.authBox p {
+  margin-top: 15px;
+  color: #38bdf8;
+  cursor: pointer;
+}

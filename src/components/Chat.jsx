@@ -1,8 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import ChatWindow from "./ChatWindow";
 import "../styles/chat.css";
-
+import ChatHeader from "./ChatHeader";
 
 function Chat({ activeChat, updateChat }) {
   const [input, setInput] = useState("");
@@ -29,7 +28,7 @@ function Chat({ activeChat, updateChat }) {
         ...newMessages,
         { sender: "bot", text: res.data.answer },
       ]);
-    } catch (err) {
+    } catch {
       updateChat([
         ...newMessages,
         { sender: "bot", text: "⚠️ Server error" },
@@ -40,17 +39,42 @@ function Chat({ activeChat, updateChat }) {
   };
 
   return (
-    <div className="chat-container">
-      <ChatWindow messages={activeChat.messages} loading={loading} />
+    <div className="chatContainer">
 
-      <div className="input-area">
+      <ChatHeader title="Conversation" />
+
+      {/* Messages */}
+      <div className="chatBody">
+        <div className="chat-center">
+
+          {activeChat.messages.map((msg, i) => (
+            <div
+              key={i}
+              className={msg.sender === "user" ? "msg user" : "msg bot"}
+            >
+              {msg.text}
+            </div>
+          ))}
+
+          {loading && <div className="msg bot">Thinking...</div>}
+
+        </div>
+      </div>
+
+      {/* Input */}
+      <div className="inputDock">
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="தமிழில் கேளுங்கள்..."
+          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
         />
-        <button onClick={sendMessage}>Send</button>
+
+        <button onClick={sendMessage}>
+          Send
+        </button>
       </div>
+
     </div>
   );
 }

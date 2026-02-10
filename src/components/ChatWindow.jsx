@@ -15,7 +15,7 @@ function ChatWindow({ messages, loading }) {
       ))}
 
       {loading && (
-        <div className="typing">AI பதில் தயாரிக்கிறது...</div>
+        <div className="typing">...</div>
       )}
 
       <div ref={endRef} />

@@ -1,16 +1,67 @@
 body {
   margin: 0;
-  font-family: "Noto Sans Tamil", sans-serif;
+  font-family: Arial, sans-serif;
   background: #343541;
 }
 
+/* App Layout */
 .app {
   display: flex;
   height: 100vh;
 }
 
-.main {
-  flex: 1;
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: #202123;
+  color: white;
   display: flex;
   flex-direction: column;
+  padding: 10px;
+}
+
+/* New Chat Button */
+.newChatBtn {
+  padding: 12px;
+  background: transparent;
+  border: 1px solid #565869;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.newChatBtn:hover {
+  background: #2a2b32;
+}
+
+/* Chat History */
+.chatList {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.chatItem {
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+
+.chatItem:hover {
+  background: #2a2b32;
+}
+
+.chatItem.active {
+  background: #343541;
+}
+
+/* Logout */
+.logoutBtn {
+  margin-top: 10px;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  color: #ff6b6b;
+  cursor: pointer;
 }

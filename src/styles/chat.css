@@ -1,60 +1,96 @@
-.chat-container {
+/* Header */
+.chatHeader {
+  height: 55px;
+  border-bottom: 1px solid #444654;
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: white;
+  background: #343541;
 }
 
-.chat-window {
-  flex: 1;
+.chatTitle {
+  font-weight: bold;
+}
+
+.chatStatus {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* Chat Center Container */
+.chat-center {
+  max-width: 720px;
+  margin: auto;
   padding: 20px;
-  overflow-y: auto;
 }
 
-.message {
-  padding: 14px 18px;
-  margin: 12px 0;
-  border-radius: 16px;
-  max-width: 70%;
-  line-height: 1.6;
-  white-space: pre-wrap;
+/* Sticky Input Dock */
+.inputDock {
+  position: sticky;
+  bottom: 0;
+  background: #343541;
+  padding: 16px;
+  border-top: 1px solid #444654;
+}
+.chatContainer{
+  height:100%;
+  display:flex;
+  flex-direction:column;
 }
 
-.message.user {
-  margin-left: auto;
-  color: white;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+.chatBody{
+  flex:1;
+  overflow-y:auto;
 }
 
-.message.bot {
-  background: white;
-  color: black;
-  border: 1px solid rgba(0,0,0,0.1);
+/* ChatGPT centered width */
+.chat-center{
+  max-width:720px;
+  margin:auto;
+  padding:20px;
 }
 
-.typing {
-  opacity: 0.6;
-  font-size: 14px;
+/* Message bubbles */
+.msg{
+  padding:12px 16px;
+  border-radius:10px;
+  margin-bottom:10px;
+  max-width:80%;
 }
 
-.input-area {
-  display: flex;
-  padding: 15px;
-  background: #40414f;
+.user{
+  background:#0b93f6;
+  color:white;
+  margin-left:auto;
 }
 
-.input-area input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  margin-right: 10px;
+.bot{
+  background:#444654;
+  color:white;
 }
 
-.input-area button {
-  padding: 10px 20px;
-  background: #19c37d;
-  border: none;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
+/* Input dock */
+.inputDock{
+  display:flex;
+  padding:15px;
+  background:#40414f;
+}
+
+.inputDock input{
+  flex:1;
+  padding:10px;
+  border-radius:6px;
+  border:none;
+  margin-right:10px;
+}
+
+.inputDock button{
+  padding:10px 18px;
+  background:#19c37d;
+  border:none;
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
 }
